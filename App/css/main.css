@@ -1,0 +1,24 @@
+*,::before,::after{
+    padding: 0;
+    margin: 0;
+}
+body{
+    
+    background: url(App/images/The1975.jpg)50%/cover;
+    background-repeat: no-repeat;
+    
+}
+.q{
+    color: #333;
+    background-color: rgba(253, 0, 0, 1);
+
+}
+.footer{
+    background-color: #fff;
+    height: 100px;
+}
+.this{
+display: flex;
+align-items: center;
+justify-content: flex-end;
+}
