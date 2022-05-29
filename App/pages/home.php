@@ -10,6 +10,8 @@ session_start();
     <link rel="stylesheet" href="App/css/style.css">
     <link rel="shortcut icon" href="App/images/favicon/favicon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <title>Вокальный кружок ТОН</title>
 </head>
 <body>
@@ -25,7 +27,7 @@ require ('require/modals.html');
 require ('require/nav.html');
 ?>
 
-</header>
+
 <section class="info">
     <div class="title">
     <h1 class="high_text">Тон</h1>
@@ -35,9 +37,9 @@ require ('require/nav.html');
 </div>
 </section>
 <div class="container">
-    <section class="serve">
+    <section class="row">
     <h1 class="text-center mt-5">Вокальный кружок "ТОН"</h1>
-    <h1 class="text-center mt-5">Наши услуги</h1>
+    <h1 class="text-center mt-5">Программа обучения звукорежиссуре</h1>
     <div class="services mt-5">
         <div class="service">
             <h4>Сведение</h4>

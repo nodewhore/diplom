@@ -8,6 +8,7 @@ if($delNews = mysqli_query($link,"DELETE FROM `news` WHERE `id` = '$news_id'")){
 }
 else{
     $response = 'Произошла ошибка';
+    header('Location: /admin');
 }
 
 ?>

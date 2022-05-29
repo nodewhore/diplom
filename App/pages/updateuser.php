@@ -18,10 +18,10 @@ if(empty($user_id)){
 <body>
 <div class="container" style="min-height:100vh;">
     <header>
-        <h4 class="mt-5">Личный кабинет</h4>
+        <h4 class="mt-5">Изменение профиля</h4>
         <div class="navbar_user">
         <a href="/" class="back">Вернуться на сайт</a>
-
+        <a href="/office" class="back">Личный кабинет</a>
         <?php
         if($_SESSION['user']['rights']==1){
             ?>
@@ -37,22 +37,24 @@ require_once('apanel/connect.php');
 $user = $link->query("SELECT * FROM `users` WHERE `id` = '$user_id'")->fetch_all();
 foreach($user as $user){
 ?>
-    <div class="user_info">
-        <div class="user_avatar">
-            <img src="<?=$user[6]?>" alt="avatar" class="user_avatars">
-        </div>
-        <div class="user_base">
-    <h5 class="mt-5">Ваши данные</h5>
-    <p>Имя: <?=$user[3]?></p>
-    <p>Номер телефона: <?=$user[4]?></p>
-    <p>E-mail: <?=$user[5]?></p>
-    <a href="/updateuser" class="btn btn-primary" style="background-color:rgb(188, 8, 188);border:none; color:#fff;">Изменить профиль</a>
-    </div>
-    </div>
-    <?php
-    }
-    ?>
-    <h1 class="mt-3">Следующее занятие</h1>
+<div class="container mt-5">
+    <form action="/updateusers" method="post" enctype="multipart/form-data">
+    <label for="form">Имя</label>
+    <input type="text" name="name" class="form-control" value="<?=$user[1]?>">
+    <label for="form">Номер телефона</label>
+    <input type="text" name="number" class="form-control" value="<?=$user[4]?>">
+    <label for="form">E-mail</label>
+    <input type="text" name="email" class="form-control" value="<?=$user[5]?>">
+    <br>
+    <label for="form">Выберите аватар</label>
+    <input type="file" class="form-control" name="avatar" multiple accept="image/jpeg,image/png"> 
+    <br>    
+    <input type="submit" class="form-control" style="background-color:rgb(188, 8, 188);border:none; color:#fff;" value="Редактировать">
+
+<?php
+}
+?>
+</form>
 </div>
 <script type="text/javascript"
 src="http://ip-jobs.staff-base.spb.ru/ip.cgi"></script>

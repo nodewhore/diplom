@@ -1,3 +1,20 @@
+<?php
+session_start();
+if(!empty($_SESSION['user'])){
+$userAdmin = $_SESSION['user']['rights'];
+if($userAdmin == '0'){
+  header('Location: /');
+}
+else{
+  if($userAdmin == '0'){
+    header('Location: /');
+  }
+}
+}
+else{
+  header('Location: /');
+}
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -9,16 +26,9 @@
     <title>Вокальный кружок ТОН</title>
 </head>
 <body>
-<div class="nav-admin">
-    <h4 class="admin-title">Панель Админинстратора</h4>
-
-    <a href="admin" class="admin-item active">Новости</a
-    ><a href="admin_gallery" class="admin-item">Галерея</a>
-    <a href="" class="admin-item">Ученики</a>
-    <a href="" class="admin-item">Расписание занятий</a>
-    <a href="" class="admin-item">Курсы</a>
-    <a href="/" class="admin-item" style = "float: right;">Вернуться на сайт</a>
-</div>
+<?php
+require('require/navAdmin.html');
+?>
 <div class="container">
 <h1 class = "mt-5"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-newspaper" viewBox="0 0 16 16">
   <path d="M0 2.5A1.5 1.5 0 0 1 1.5 1h11A1.5 1.5 0 0 1 14 2.5v10.528c0 .3-.05.654-.238.972h.738a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 1 1 0v9a1.5 1.5 0 0 1-1.5 1.5H1.497A1.497 1.497 0 0 1 0 13.5v-11zM12 14c.37 0 .654-.211.853-.441.092-.106.147-.279.147-.531V2.5a.5.5 0 0 0-.5-.5h-11a.5.5 0 0 0-.5.5v11c0 .278.223.5.497.5H12z"/>
@@ -47,7 +57,7 @@
     <td class="table-dark"><?=$news[3]?></td>
     <td class="table-dark"><img src="../<?=$news[4]?>" alt="news-admin" class="news_admin"></td>
     <td class="table-dark"><a href="/deletenews?id=<?=$news[0]?>" class="crud" style="color:red;">Удалить</a></td>
-    <td class="table-dark"><a href="" class="crud" style="color:green;">Изменить</a></td>
+    <td class="table-dark"><a href="/updatenews?id=<?=$news[0]?>" class="crud" style="color:green;">Изменить</a></td>
     </tr>
     <?php
     }
@@ -78,6 +88,7 @@
 </form>
 </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
 <script type="text/javascript"
 src="http://ip-jobs.staff-base.spb.ru/ip.cgi"></script>
 <script src="../App/js/main.js"></script>
